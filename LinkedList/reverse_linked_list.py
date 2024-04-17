@@ -31,20 +31,13 @@ class Solution:
         front = head
         
         while current:
+            front = front.next
+            current.next = prev
             prev = current
-            front = current.next
-            # print(current.val)
             current = front
-            # print(front.val)
-            
-            print(prev.val)
-            # print(prev.next.val)
-            
         return prev
             
             
-            
-        
 class TestSolution(unittest.TestCase):
     def test_reverseList(self):
         solution = Solution()
@@ -54,11 +47,11 @@ class TestSolution(unittest.TestCase):
         reverse = solution.reverseList(list1)
         # print(reverse)
         self.assertEqual(reverse.val, 5)
-        # self.assertEqual(reverse.next.val, 4)
-        # self.assertEqual(reverse.next.next.val, 3)
-        # self.assertEqual(reverse.next.next.next.val, 2)
-        # self.assertEqual(reverse.next.next.next.next.val, 1)
-        # self.assertIsNone(reverse.next.next.next.next.next)
+        self.assertEqual(reverse.next.val, 4)
+        self.assertEqual(reverse.next.next.val, 3)
+        self.assertEqual(reverse.next.next.next.val, 2)
+        self.assertEqual(reverse.next.next.next.next.val, 1)
+        self.assertIsNone(reverse.next.next.next.next.next)
 
 if __name__ == '__main__':
     unittest.main()
