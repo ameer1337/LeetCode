@@ -36,6 +36,8 @@ class TestSolution(unittest.TestCase):
         
         head = ListNode(1)
         self.assertEqual(Solution().getDecimalValue(head), 1)
+        
+        #
 
 if __name__ == '__main__':
     unittest.main()
